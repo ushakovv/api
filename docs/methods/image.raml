@@ -1,0 +1,23 @@
+description: Картинки используемые в вёрстке письма
+get:
+  securedBy: [cookie]
+  description: Получение изображения через API (внешняя ссылка скрыта от клиента и жестко зашита в базе)
+  queryParameters:
+    id:
+      type: integer
+      description: Идентификатор изображения
+      example: 1
+      required: true
+post:
+  securedBy: [cookie]
+  description: Загрузка картинки
+  queryParameters:
+    letter_id:
+      type: integer
+      description: Идентификатор шаблона в котором будет использоваться картинка
+      example: 1
+      required: true
+    file:
+      type: file
+      description: Загружаемый файл
+      required: true

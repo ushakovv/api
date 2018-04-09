@@ -1,0 +1,10 @@
+description: Разлогинивание пользователя
+delete:
+  securedBy: [cookie]
+  description: Разлогинивание текущего пользователя
+  queryParameters:
+    is_all:
+      type: boolean
+      description: Флаг, показывающий что нужно удалить все сессии пользователя (разлогинить на всех устройстах и во всех браузерах)
+      example: true
+      required: false

@@ -1,0 +1,58 @@
+description: Шаблоны писем
+get:
+  securedBy: [cookie]
+  description: Получаем список писем или одно письмо. В зависимости от наличия параметра id будет выведена либо одна запрошенная запись, либо список.
+  is: [limits]
+  queryParameters:
+    id:
+      type: integer
+      description: Идентификатор шаблона, исключает возможность применения всех остальных параметров запроса
+      example: 1
+      required: false
+    sort:
+      type: string
+      description: Поле по которому будет отсортирована выборка
+      example: dt_last_use
+      enum: [dt_add, dt_last_use]
+      default: dt_last_use
+      required: false
+    sort_order:
+      type: string
+      description: Направление сортировки
+      example: desc
+      enum: [asc, desc]
+      default: desc
+      required: false
+post:
+  securedBy: [cookie]
+  description: Добавение нового пустого шаблона (обязательно вызываем этот метод при открытие конструктора, чтобы был идентификатор шаблона, к которому будем привязывать картинки). Параметры запроса передавать не нужно.
+put:
+  securedBy: [cookie]
+  description: Редактирование шаблона
+  queryParameters:
+    id:
+      type: integer
+      description: Идентификатор шаблона
+      example: 1
+      required: true
+    json:
+      type: string
+      description: Структура шаблона для обработки его в конструкторе
+      #maxLength: 255
+      example: {'data':{}}
+      required: true
+    content:
+      type: string
+      description: Контент шаблона
+      #maxLength: 255
+      example: "<div>Hello world!</div>"
+      required: true
+delete:
+  securedBy: [cookie]
+  description: Удаление шаблона
+  queryParameters:
+    id:
+      type: integer
+      description: Идентификатор шаблона
+      example: 1
+      required: true

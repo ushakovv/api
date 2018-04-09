@@ -1,0 +1,22 @@
+description: Интеграция с социальными сетями для авторизации
+post:
+  description: Вход пользователя через социальную сеть
+  queryParameters:
+    social:
+      type: string
+      description: Идентификатор социальной сети
+      example: vk
+      enum: [vk, gp, fb, ok] # список примерный и будет изменятьсяи  расширяться
+      required: true
+    name:
+      type: string
+      description: Имя пользователя
+      maxLength: 255
+      example: Иванов Иван
+      required: true
+    uid:
+      type: string
+      description: Уникальный идентификатор пользователя в социальной сети
+      maxLength: 255
+      example: 1234567890qwertyu
+      required: true

@@ -1,0 +1,71 @@
+CREATE TABLE image (
+    template_id integer NOT NULL,
+    md5_file character varying(32) NOT NULL,
+    size integer DEFAULT 0 NOT NULL,
+    name character varying(45) NOT NULL,
+    url character varying(255),
+    extension character varying(4) DEFAULT NULL::character varying,
+    width integer DEFAULT 0,
+    height integer DEFAULT 0,
+    dt_add timestamp with time zone DEFAULT now() NOT NULL,
+    is_deleted boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE image OWNER TO postgres;
+
+
+
+CREATE TABLE template (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    structure text NOT NULL,
+    content_html text,
+    dt_add timestamp with time zone DEFAULT now() NOT NULL,
+    dt_update timestamp with time zone,
+    version smallint DEFAULT 1 NOT NULL,
+    is_deleted boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE template OWNER TO postgres;
+
+
+
+CREATE SEQUENCE template_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE template_id_seq OWNER TO postgres;
+
+
+
+ALTER SEQUENCE template_id_seq OWNED BY template.id;
+
+
+
+
+ALTER TABLE ONLY template ALTER COLUMN id SET DEFAULT nextval('template_id_seq'::regclass);
+
+
+
+
+SELECT pg_catalog.setval('template_id_seq', 1, false);
+
+
+
+
+ALTER TABLE ONLY image
+    ADD CONSTRAINT image_pkey PRIMARY KEY (md5_file, size);
+
+
+
+
+ALTER TABLE ONLY template
+    ADD CONSTRAINT template_pkey PRIMARY KEY (id);
+
+

@@ -1,0 +1,16 @@
+# directories
+.idea
+bin
+tmp
+vendor
+
+# specific files
+.DS_Store
+Thumbs.db
+
+# masks
+*.orig
+*.local.php
+*.local.js
+*.cookie
+*.phar

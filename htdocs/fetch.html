@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+
+	$.post('http://api.mailmaker.loc/login', { email: 'ilicherv.am@gmail.com', password: 123456 }, function(data){
+		alert('ok ajax');
+	}, "json");
+
+	/*fetch('http://api.mailmaker.loc/login?email=ilicherv.am@gmail.com&password=123456', {  
+		method: 'get',  
+		headers: {  
+			"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"  
+		}
+	}).then(function(response) {
+		response.json().then(function(data) {
+			alert('ok');
+		});
+	});*/
+
+});
+</script>

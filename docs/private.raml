@@ -1,0 +1,29 @@
+#%RAML 1.0
+# Для валидации формата можно испльзвать онлайн редактор https://anypoint.mulesoft.com/designcenter/designer
+title: MailMaker
+baseUri: https://api.mailmaker.loc/
+version: 1.0
+protocols: [https]
+mediaType: application/json
+documentation:
+  - title: Добро пожаловать
+    content: Добро пожаловать в полную документацию по API сервиса MailMaker
+# Схемы аутентификации
+securitySchemes:
+  cookie: !include securitySchemes/cookie.raml
+# Типовые блоки описания методов
+traits:
+  limits: !include traits/limits.raml
+  login_method: !include traits/login_method.raml
+# Описание методов
+/check_auth: !include methods/check_auth.raml
+/confirm_user: !include methods/confirm_user.raml
+/forgot: !include methods/forgot.raml
+/image: !include methods/image.raml
+/login: !include methods/login.raml
+/logout: !include methods/logout.raml
+/registration: !include methods/registration.raml
+/social_auth: !include methods/social_auth.raml
+/template: !include methods/template.raml
+/template_archive: !include methods/template_archive.raml
+/template_preview: !include methods/template_preview.raml

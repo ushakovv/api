@@ -1,0 +1,10 @@
+description: Восстановление пароля пользователя
+post:
+  description: Запрос письма с новым паролем для указанного аккаунта. Чтобы указанный в письме пароль стал актуальным необходимо перейти по ссылке из письма.
+  queryParameters:
+    email:
+      type: string
+      description: Email адрес, на который зарегистрирован аккаунт
+      maxLength: 129
+      example: test@test.ru
+      required: true

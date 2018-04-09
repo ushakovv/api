@@ -1,0 +1,77 @@
+# integer
+count:
+  type: integer
+  description: Описание
+  minimum: 1
+  maximum: 5
+  default: 1
+  example: 2
+  required: false
+
+
+# string
+name:
+  type: string
+  description: Описание
+  minLength: 4
+  maxLength: 12
+  example: Тест 1
+  default: Тест
+  required: false
+
+
+# enum (string)
+state:
+  type: string
+  description: Описание
+  enum: [NEW, INIT, TEST, TEST_FINISH, RENEW, MAIN, WAIT_STOPPED, STOPPED, FINISH, FAIL]
+  default: NEW
+  example: FINISH
+  required: false
+
+
+# boolean
+is_flag:
+  type: boolean
+  description: Описание
+  default: false
+  example: true
+  required: false
+
+
+# file
+file:
+  type: file
+  description: Описание
+  required: true
+
+
+# array of integer
+ids:
+  type: array
+  items: integer
+  description: Описание
+  default: [1,2]
+  example: [1,2,3]
+  required: true
+
+
+# object
+any_type:
+  type: object
+  description: Описание
+  properties: {
+    id: {
+      type: integer,
+      description: "Описание",
+      example: 1,
+      required: true
+    },
+    is_flag: {
+      type: boolean,
+      description: "Описание",
+      default: false,
+      example: false,
+      required: false
+    }
+  }

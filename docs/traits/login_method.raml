@@ -1,0 +1,23 @@
+description: Авторизация пользователя в сервисе. Правильно использовать метод POST, но для возможности встраивания через iframe во внешние проекты, предусмотрен полностью идентичный метод GET
+queryParameters:
+  email:
+    type: string
+    description: Email пользователя системы
+    maxLength: 129
+    example: test@example.com
+    required: true
+  password:
+    type: string
+    description: Пароль
+    example: Qwerty123!
+    required: true
+  is_remember:
+    type: boolean
+    description: Флаг, показывающий необходимость запомнить пользователя (сессионная cookie или на месяц)
+    example: true
+    required: false
+  is_iframe_login:
+    type: boolean
+    description: Флаг, при установке которого после успешной авторизации будет выполнен редирект на главную страницу ???с переданным в качестве get параметра токеном???
+    example: false
+    required: false

@@ -1,0 +1,21 @@
+description: Регистрация для пользователей
+post:
+  description: Регистрация пользователя по email
+  queryParameters:
+    name:
+      type: string
+      description: Имя пользователя
+      maxLength: 255
+      example: Иванов Иван
+      required: true
+    email:
+      type: string
+      description: Email пользователя системы
+      maxLength: 129
+      example: test@example.com
+      required: true
+    password:
+      type: string
+      description: Пароль
+      example: Qwerty123!
+      required: true

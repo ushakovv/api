@@ -1,0 +1,16 @@
+queryParameters:
+  limit:
+    type: integer
+    description: Число записей на странице (случае отклонения переданного значения от заданных границ, limit будет автоматиески приведен к ближайшей)
+    minimum: 0
+    maximum: 100
+    default: 10
+    example: 30
+    required: false
+  offset:
+    type: integer
+    description: Смещение выборки на указанное число записей (в случае отклонения переданного значения от заданных границ, limit будет автоматиески приведен к ближайшей)
+    minimum: 0
+    default: 0
+    example: 0
+    required: false
